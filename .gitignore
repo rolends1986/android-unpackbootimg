@@ -12,3 +12,7 @@ objdump
 piggy
 RECOVERY_RAMDIS.img
 uboot.disk
+.DS_Store
+rc
+include/mincrypt/p256.h.gch
+kernel.elf

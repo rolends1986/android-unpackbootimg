@@ -1,13 +1,12 @@
-CC      ?= /usr/bin/gcc -m64
-LD      ?= /usr/bin/gcc
-DEP_CC  ?= /usr/bin/gcc
-AR      ?= /usr/bin/ar 
-RANLIB  ?= /usr/bin/ranlib
-
-STRIP   ?= /usr/bin/strip
+CC      ?= gcc
+LD      ?= gcc
+DEP_CC  ?= gcc
+AR      ?= ar
+RANLIB  ?= ranlib
+STRIP   ?= strip
 CFLAGS  += -O2 -Wall -Werror -Wno-address-of-packed-member
 LDFLAGS +=
-#在 mac 上binutils 影响了
+
 # libmincrypt
 LIB_NAME = mincrypt
 SLIB     = lib$(LIB_NAME).a
@@ -43,7 +42,7 @@ default: all
 all: $(LIB_NAME) mkbootimg unpackbootimg
 
 $(LIB_NAME): $(LIB_OBJS)
-		$(AR) rcu $(SLIB) $(LIB_OBJS)
+		$(AR) rc $(SLIB) $(LIB_OBJS)
 		$(RANLIB) $(SLIB)
 
 mkbootimg: $(MKBOOTIMG_SRCS)
