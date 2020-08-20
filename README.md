@@ -44,3 +44,11 @@ usage: mkbootimg.py [-h] --kernel KERNEL [--ramdisk RAMDISK] [--second SECOND]
 
 Credits to [@osm0sis](https://github.com/osm0sis/mkbootimg) for maintaining
 most of the unpackbootimg logic that is no longer present in AOSP.
+
+./aarch64-dump  -EL -b binary -D -m armv5t  ./arm-linux-4.9.18.zImage  | grep 8b1f
+       0:	00088b1f 	andeq	r8, r8, pc, lsl fp
+dd if=./KERNEL.img-zImage of=piggy.gz bs=1 skip=0
+
+/home/ching/Android/Sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-objdump -EL -b binary -D -m armv5t  ./KERNEL.img-zImage
+
+
